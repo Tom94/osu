@@ -211,7 +211,8 @@ namespace osu.Game.Screens.Utility
 
             previousFrameSyncMode = config.Get<FrameSync>(FrameworkSetting.FrameSync);
             previousActiveHz = host.UpdateThread.ActiveHz;
-            config.SetValue(FrameworkSetting.FrameSync, FrameSync.Unlimited);
+            config.SetValue(FrameworkSetting.FrameSync, FrameSync.Off);
+            config.SetValue(FrameworkSetting.MaxFps, 1000000.0);
             host.UpdateThread.ActiveHz = target_host_update_frames;
             host.AllowBenchmarkUnlimitedFrames = true;
 

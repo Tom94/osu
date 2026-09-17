@@ -30,9 +30,19 @@ namespace osu.Game.Localisation
         public static LocalisableString FrameLimiter => new TranslatableString(getKey(@"frame_limiter"), @"Frame limiter");
 
         /// <summary>
+        /// "Low latency"
+        /// </summary>
+        public static LocalisableString LowLatency => new TranslatableString(getKey(@"low_latency"), @"Low latency");
+
+        /// <summary>
         /// "Threading mode"
         /// </summary>
         public static LocalisableString ThreadingMode => new TranslatableString(getKey(@"threading_mode"), @"Threading mode");
+
+        /// <summary>
+        /// "Maximum FPS"
+        /// </summary>
+        public static LocalisableString MaxFPS => new TranslatableString(getKey(@"max_fps"), @"Maximum FPS");
 
         /// <summary>
         /// "Show FPS"

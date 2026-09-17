@@ -55,13 +55,32 @@ namespace osu.Game.Overlays.Settings.Sections.Graphics
                     Current = config.GetBindable<FrameSync>(FrameworkSetting.FrameSync),
                 })
                 {
-                    Keywords = new[] { @"fps", @"framerate" },
+                    Keywords = new[] { @"fps", @"framerate", @"tearing", @"unlimited", @"immediate" },
+                },
+                new SettingsItemV2(new FormEnumDropdown<LowLatency>
+                {
+                    Caption = GraphicsSettingsStrings.LowLatency,
+                    Current = config.GetBindable<LowLatency>(FrameworkSetting.LowLatency),
+                })
+                {
+                    Keywords = new[] { @"reflex" },
                 },
                 new SettingsItemV2(new FormEnumDropdown<ExecutionMode>
                 {
                     Caption = GraphicsSettingsStrings.ThreadingMode,
                     Current = config.GetBindable<ExecutionMode>(FrameworkSetting.ExecutionMode)
                 }),
+                new SettingsItemV2(new FormSliderBar<double>
+                {
+                    Caption = GraphicsSettingsStrings.MaxFPS,
+                    TransferValueOnCommit = true,
+                    Current = config.GetBindable<double>(FrameworkSetting.MaxFps),
+                    KeyboardStep = 1f,
+                    LabelFormat = v => $@"{v:0.}hz",
+                })
+                {
+                    Keywords = new[] { @"unlimited" },
+                },
                 new SettingsItemV2(new FormCheckBox
                 {
                     Caption = GraphicsSettingsStrings.ShowFPS,
